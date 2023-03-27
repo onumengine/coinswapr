@@ -4,4 +4,5 @@ class RouteNames {
   static const getStarted = "get-started";
   static const confirmOTP = "confirm-otp";
   static const home = "home";
+  static const notifications = "notifications";
 }

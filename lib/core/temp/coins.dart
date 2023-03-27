@@ -1,18 +1,4 @@
-class Coin {
-  String symbol;
-  String name;
-  double amount;
-  double value;
-  double change;
-
-  Coin({
-    required this.symbol,
-    required this.name,
-    required this.amount,
-    required this.value,
-    required this.change,
-  });
-}
+import 'package:coinswapr/models/coin.dart';
 
 List<Coin> coins = [
   Coin(

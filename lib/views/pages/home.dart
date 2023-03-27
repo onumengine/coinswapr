@@ -1,3 +1,4 @@
+import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
 import 'package:coinswapr/views/components/history.dart';
 import 'package:coinswapr/views/components/peer_to_peer.dart';
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              showNotifications("No notification UI yet");
+              Navigator.of(context).pushNamed(RouteNames.notifications);
             },
             icon: const Icon(Icons.notifications_none),
           ),

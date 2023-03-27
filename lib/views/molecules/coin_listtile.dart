@@ -1,6 +1,7 @@
-import 'package:coinswapr/core/temp/coins.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
+import 'package:coinswapr/models/coin.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class CoinListTile extends StatelessWidget {
   final void Function() onClick;
@@ -17,8 +18,9 @@ class CoinListTile extends StatelessWidget {
     return ListTile(
       onTap: onClick,
       contentPadding: EdgeInsets.zero,
-      leading: Image.network(
-        "https://roqqu.com/static/media/tokens/${coin.symbol}.png",
+      leading: FadeInImage.memoryNetwork(
+        placeholder: kTransparentImage,
+        image: "https://roqqu.com/static/media/tokens/${coin.symbol}.png",
       ),
       title: Text(
         coin.name,
@@ -55,7 +57,7 @@ class CoinListTile extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           Text(
-            "${coin.change}%",
+            "${coin.change > 1 ? '+' : ''}${coin.change}%",
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w500,

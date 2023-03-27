@@ -68,6 +68,7 @@ class _PortfolioState extends State<Portfolio> {
         ),
         ...(coins.map(
           (coin) => Padding(
+            key: UniqueKey(),
             padding: const EdgeInsets.only(top: 20),
             child: CoinListTile(
               onClick: () => selectCoin(coin.symbol),
