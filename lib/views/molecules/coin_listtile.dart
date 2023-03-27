@@ -1,0 +1,71 @@
+import 'package:coinswapr/core/temp/coins.dart';
+import 'package:coinswapr/core/theming/color_palette.dart';
+import 'package:flutter/material.dart';
+
+class CoinListTile extends StatelessWidget {
+  final void Function() onClick;
+  final Coin coin;
+
+  const CoinListTile({
+    Key? key,
+    required this.onClick,
+    required this.coin,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      onTap: onClick,
+      contentPadding: EdgeInsets.zero,
+      leading: Image.network(
+        "https://roqqu.com/static/media/tokens/${coin.symbol}.png",
+      ),
+      title: Text(
+        coin.name,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      subtitle: Row(
+        children: [
+          Text(
+            coin.symbol.toUpperCase(),
+            style: const TextStyle(
+              color: Color(0x99000000),
+            ),
+          ),
+          const Text("   "),
+          Text(
+            "${coin.amount}",
+            style: const TextStyle(
+              color: Color(0x99000000),
+            ),
+          ),
+        ],
+      ),
+      trailing: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "\$${coin.value}",
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            "${coin.change}%",
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
+              color: (coin.change > 1)
+                  ? ColorPalette.primaryGreen
+                  : ColorPalette.primaryRed,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

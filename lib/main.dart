@@ -1,5 +1,6 @@
 import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/navigation/routemap.dart';
+import 'package:coinswapr/core/theming/color_palette.dart';
 import 'package:coinswapr/views/pages/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: ColorPalette.primaryWhite,
       ),
       home: const SplashScreen(),
       routes: routeMap,
