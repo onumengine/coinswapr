@@ -15,7 +15,6 @@ class ConfirmOTP extends StatefulWidget {
 
 class _ConfirmOTPState extends State<ConfirmOTP> {
   static const double horizontalPadding = 24;
-  final OtpFieldController otpText = OtpFieldController();
   final titleKey = GlobalKey();
   final subtitleKey = GlobalKey();
   final otpKey = GlobalKey();

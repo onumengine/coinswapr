@@ -174,4 +174,10 @@ class _GetStartedState extends State<GetStarted> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    email.dispose();
+    super.dispose();
+  }
 }

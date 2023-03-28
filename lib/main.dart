@@ -1,10 +1,12 @@
-import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/navigation/routemap.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
+import 'package:coinswapr/service_locator.dart';
 import 'package:coinswapr/views/pages/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  registerDependencies();
   runApp(const MyApp());
 }
 

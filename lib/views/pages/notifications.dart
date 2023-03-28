@@ -1,6 +1,6 @@
+import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/temp/notifications.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
-import 'package:coinswapr/core/utilities/show_snackbar.dart';
 import 'package:coinswapr/views/molecules/notification_listtile.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class Notifications extends StatefulWidget {
 
 class _NotificationsState extends State<Notifications> {
   void _openNotificationSettings() {
-    showSnackbar("No notification settings UI yet", context);
+    Navigator.of(context).pushNamed(RouteNames.notificationSettings);
   }
 
   @override

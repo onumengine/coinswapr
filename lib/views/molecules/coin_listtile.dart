@@ -21,6 +21,7 @@ class CoinListTile extends StatelessWidget {
       leading: FadeInImage.memoryNetwork(
         placeholder: kTransparentImage,
         image: "https://roqqu.com/static/media/tokens/${coin.symbol}.png",
+        imageErrorBuilder: (_, obj, stacktrace) => const Icon(Icons.image),
       ),
       title: Text(
         coin.name,

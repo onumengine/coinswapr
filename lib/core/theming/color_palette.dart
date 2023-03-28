@@ -28,4 +28,7 @@ class ColorPalette {
   static const yellowIconBG = Color(0x1AF2C037);
   static const tileTitleText = Color(0xDE000000);
   static const tileSubtitleText = Color(0x99000000);
+  static const activeSwitch = Color(0x800075FF);
+  static const greyText = Color(0xFF64748B);
+  static const blackText = Color(0xFF1E293B);
 }
