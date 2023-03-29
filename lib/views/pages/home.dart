@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(
             onPressed: () {
-              showNotifications("No dashboard UI yet");
+              showNotifications("No settings UI yet");
             },
             icon: const Icon(Icons.dashboard_outlined),
           ),
@@ -111,13 +111,13 @@ class _HomePageState extends State<HomePage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                _currentNavbarIndex == 3 ? Icons.history : Icons.history_outlined,
+                _currentNavbarIndex == 3 ? Icons.receipt : Icons.receipt_outlined,
               ),
               label: "History",
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                _currentNavbarIndex == 4 ? Icons.timer : Icons.timer_outlined,
+                _currentNavbarIndex == 4 ? Icons.alarm : Icons.alarm_outlined,
               ),
               label: "Price Alerts",
             ),

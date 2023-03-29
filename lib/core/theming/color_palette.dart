@@ -18,8 +18,10 @@ class ColorPalette {
   static const searchbarHintText = Color(0xFF94A3B8);
   static const greenIcon = Color(0xFF21BA45);
   static const greenIconBg = Color(0x1A21BA45);
+  static const greenPriceAlertIconBG = Color(0xFFE8F5E9);
   static const redIcon = Color(0xFFDC2626);
   static const redIconBG = Color(0x1ADC2626);
+  static const redPriceAlertIconBG = Color(0xFFFEF2F2);
   static const normalIcon = Color(0xFF353535);
   static const normalIconBG = Color(0xFFF1F5F9);
   static const blueIcon = Color(0xFF03A9F4);
@@ -31,4 +33,6 @@ class ColorPalette {
   static const activeSwitch = Color(0x800075FF);
   static const greyText = Color(0xFF64748B);
   static const blackText = Color(0xFF1E293B);
+  static const cardShadow = Color(0x04000000);
+  static const greenButtonSecondary = Color(0xFF009688);
 }

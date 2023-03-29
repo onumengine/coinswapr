@@ -113,4 +113,10 @@ class _WalletState extends State<Wallet> {
       ],
     );
   }
+
+  @override
+  void dispose() {
+    searchQuery.dispose();
+    super.dispose();
+  }
 }

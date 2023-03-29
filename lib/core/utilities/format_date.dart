@@ -14,7 +14,7 @@ String formatDate(DateTime date) {
     "Dec",
   ];
   int year = date.year;
-  String month = months[date.month];
+  String month = months[date.month - 1];
   int day = date.day;
   return "$month $day, $year";
 }

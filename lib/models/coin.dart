@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class Coin extends Equatable {
-  String symbol;
-  String name;
-  double amount;
-  double value;
-  double change;
+  final String symbol;
+  final String name;
+  final double amount;
+  final double value;
+  final double change;
 
-  Coin({
+  const Coin({
     required this.symbol,
     required this.name,
     required this.amount,
