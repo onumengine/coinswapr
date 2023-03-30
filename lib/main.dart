@@ -27,6 +27,9 @@ class MyApp extends StatelessWidget {
           caption: GoogleFonts.poppins(),
         ),
         appBarTheme: AppBarTheme(
+          backgroundColor: ColorPalette.primaryWhite,
+          foregroundColor: ColorPalette.appbarText,
+          elevation: 0,
           titleTextStyle: TextStyle(
             fontWeight: FontWeight.w600,
             color: ColorPalette.appbarText,

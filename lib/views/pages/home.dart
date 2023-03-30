@@ -34,14 +34,6 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  void showNotifications(String text) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(text),
-      ),
-    );
-  }
-
   void _setCurrentNavbarIndex(int newIndex) {
     setState(() {
       _currentNavbarIndex = newIndex;
@@ -67,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(
             onPressed: () {
-              showNotifications("No settings UI yet");
+              Navigator.of(context).pushNamed(RouteNames.settings);
             },
             icon: const Icon(Icons.dashboard_outlined),
           ),

@@ -7,4 +7,5 @@ class RouteNames {
   static const notifications = "notifications";
   static const notificationSettings = "notification-settings";
   static const coinWallet = "coin-wallet";
+  static const settings = "settings";
 }

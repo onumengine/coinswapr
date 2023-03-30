@@ -9,6 +9,7 @@ import 'package:coinswapr/views/pages/home.dart';
 import 'package:coinswapr/views/pages/notification_settings.dart';
 import 'package:coinswapr/views/pages/notifications.dart';
 import 'package:coinswapr/views/pages/onboarding.dart';
+import 'package:coinswapr/views/pages/settings.dart';
 import 'package:coinswapr/views/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,5 +28,6 @@ Map<String, WidgetBuilder> routeMap = {
         ),
         child: const NotificationSettings(),
       ),
-  RouteNames.coinWallet: (_) => const CoinWallet()
+  RouteNames.coinWallet: (_) => const CoinWallet(),
+  RouteNames.settings: (_) => const Settings(),
 };
