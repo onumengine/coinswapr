@@ -6,9 +6,11 @@ import 'package:coinswapr/views/pages/coin_wallet.dart';
 import 'package:coinswapr/views/pages/confirm_otp.dart';
 import 'package:coinswapr/views/pages/get_started.dart';
 import 'package:coinswapr/views/pages/home.dart';
+import 'package:coinswapr/views/pages/language_settings.dart';
 import 'package:coinswapr/views/pages/notification_settings.dart';
 import 'package:coinswapr/views/pages/notifications.dart';
 import 'package:coinswapr/views/pages/onboarding.dart';
+import 'package:coinswapr/views/pages/profile_settings.dart';
 import 'package:coinswapr/views/pages/settings.dart';
 import 'package:coinswapr/views/pages/splash.dart';
 import 'package:flutter/material.dart';
@@ -30,4 +32,6 @@ Map<String, WidgetBuilder> routeMap = {
       ),
   RouteNames.coinWallet: (_) => const CoinWallet(),
   RouteNames.settings: (_) => const Settings(),
+  RouteNames.profileSettings: (_) => const ProfileSettings(),
+  RouteNames.languageSettings: (_) => const LanguageSettings(),
 };

@@ -47,7 +47,7 @@ class _SettingsState extends State<Settings> {
               color: ColorPalette.appbarText,
             ),
             onTap: () {
-              openPage(RouteNames.home);
+              openPage(RouteNames.profileSettings);
             },
           ),
           ListTile(
@@ -78,7 +78,7 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             onTap: () {
-              openPage(RouteNames.home);
+              openPage(RouteNames.languageSettings);
             },
           ),
           ListTile(

@@ -8,4 +8,6 @@ class RouteNames {
   static const notificationSettings = "notification-settings";
   static const coinWallet = "coin-wallet";
   static const settings = "settings";
+  static const profileSettings = "profile-settings";
+  static const languageSettings = "language-settings";
 }

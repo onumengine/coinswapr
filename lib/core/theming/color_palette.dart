@@ -32,8 +32,11 @@ class ColorPalette {
   static const tileSubtitleText = Color(0x99000000);
   static const activeSwitch = Color(0x800075FF);
   static const greyText = Color(0xFF64748B);
+  static const greyTextSecondary = Color(0x61000000);
   static const blackText = Color(0xFF1E293B);
   static const cardShadow = Color(0x04000000);
+  static const cardShadowSecond = Color(0x07000000);
   static const greenButtonSecondary = Color(0xFF009688);
   static const greyTileIconBorder = Color(0xFFCBD5E1);
+  static const divider = Color(0xFFF1F5F9);
 }

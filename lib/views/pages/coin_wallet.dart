@@ -73,13 +73,13 @@ class _CoinWalletState extends State<CoinWallet> {
               borderRadius: BorderRadius.circular(kBorderRadiusTwelve),
               boxShadow: const [
                 BoxShadow(
-                  color: Color(0x04000000),
+                  color: ColorPalette.cardShadow,
                   offset: Offset(0, 1.85),
                   blurRadius: 3.15,
                   spreadRadius: 0,
                 ),
                 BoxShadow(
-                  color: Color(0x07000000),
+                  color: ColorPalette.cardShadowSecond,
                   offset: Offset(0, 8.15),
                   blurRadius: 6.52,
                   spreadRadius: 0,
@@ -201,7 +201,9 @@ class _CoinWalletState extends State<CoinWallet> {
                               fontWeight: FontWeight.w600,
                             ),
                             labelPadding: const EdgeInsets.symmetric(
-                                vertical: 0, horizontal: kPaddingTen),
+                              vertical: 0,
+                              horizontal: kPaddingTen,
+                            ),
                             backgroundColor: (_selectedInterval == interval)
                                 ? ColorPalette.chipBG
                                 : ColorPalette.primaryWhite,
