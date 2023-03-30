@@ -49,6 +49,7 @@ dependencies:
   web_socket_channel: ^2.3.0
   fl_chart: ^0.61.0
   google_fonts: ^4.0.3
+  pretty_qr_code: ^2.0.3
 
 dev_dependencies:
   flutter_test:

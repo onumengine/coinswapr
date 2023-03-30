@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
+import 'package:coinswapr/core/utilities/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -26,16 +27,15 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
   void verifyOTP(String value) {
     //  TODO: Implement verifyOTP
     Timer(const Duration(milliseconds: 500), () {
-      Navigator.of(context).pushNamed(RouteNames.home);
+      Navigator.of(context).pushNamedAndRemoveUntil(
+        RouteNames.home,
+        (route) => false,
+      );
     });
   }
 
   void resendCode() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("Resent code"),
-      ),
-    );
+    showSnackbar("Resent code", context);
   }
 
   @override
@@ -53,6 +53,7 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
         backgroundColor: ColorPalette.primaryBlue,
         automaticallyImplyLeading: true,
         elevation: 0,
+        foregroundColor: ColorPalette.primaryWhite,
       ),
       body: SizedBox(
         height: screenSize.height,
