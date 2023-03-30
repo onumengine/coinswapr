@@ -1,6 +1,8 @@
+import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/temp/coins.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
 import 'package:coinswapr/models/coin.dart';
+import 'package:coinswapr/models/coin_symbol_route_arg.dart';
 import 'package:coinswapr/views/molecules/coin_listtile.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +17,6 @@ class _WalletState extends State<Wallet> {
   final TextEditingController searchQuery = TextEditingController();
   List<Coin> shallowCopy = List.from(coins);
 
-  void _showSnackbar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
-    );
-  }
-
   void onChangeSearchQuery(String query) {
     List<Coin> results = coins
         .where((element) =>
@@ -34,8 +28,11 @@ class _WalletState extends State<Wallet> {
     });
   }
 
-  void selectCoin(String symbol) {
-    _showSnackbar("You selected ${symbol.toUpperCase()}");
+  void selectCoin(String symbol, String name) {
+    Navigator.of(context).pushNamed(
+      RouteNames.coinWallet,
+      arguments: CoinSymbolRouteArg(symbol: symbol, name: name),
+    );
   }
 
   @override
@@ -105,7 +102,7 @@ class _WalletState extends State<Wallet> {
             key: UniqueKey(),
             padding: const EdgeInsets.only(top: 24),
             child: CoinListTile(
-              onClick: () => selectCoin(coin.symbol),
+              onClick: () => selectCoin(coin.symbol, coin.name),
               coin: coin,
             ),
           ),

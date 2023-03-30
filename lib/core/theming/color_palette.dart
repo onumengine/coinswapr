@@ -35,4 +35,5 @@ class ColorPalette {
   static const blackText = Color(0xFF1E293B);
   static const cardShadow = Color(0x04000000);
   static const greenButtonSecondary = Color(0xFF009688);
+  static const greyTileIconBorder = Color(0xFFCBD5E1);
 }

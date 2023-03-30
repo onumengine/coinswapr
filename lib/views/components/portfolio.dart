@@ -1,5 +1,7 @@
+import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/temp/coins.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
+import 'package:coinswapr/models/coin_symbol_route_arg.dart';
 import 'package:coinswapr/views/molecules/coin_listtile.dart';
 import 'package:coinswapr/views/molecules/portfolio_summary.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,9 @@ class Portfolio extends StatefulWidget {
 class _PortfolioState extends State<Portfolio> {
   void _showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message),),
+      SnackBar(
+        content: Text(message),
+      ),
     );
   }
 
@@ -22,8 +26,11 @@ class _PortfolioState extends State<Portfolio> {
     _showSnackbar("Adding new wallet");
   }
 
-  void selectCoin(String symbol) {
-    _showSnackbar("Selected ${symbol.toUpperCase()}");
+  void selectCoin(String symbol, String name) {
+    Navigator.of(context).pushNamed(
+      RouteNames.coinWallet,
+      arguments: CoinSymbolRouteArg(name: name, symbol: symbol),
+    );
   }
 
   @override
@@ -52,9 +59,7 @@ class _PortfolioState extends State<Portfolio> {
               child: const Chip(
                 label: Text(
                   "Add New Wallet",
-                  style: TextStyle(
-                    color: ColorPalette.chipForeground
-                  ),
+                  style: TextStyle(color: ColorPalette.chipForeground),
                 ),
                 avatar: Icon(
                   Icons.add,
@@ -68,13 +73,10 @@ class _PortfolioState extends State<Portfolio> {
         ),
         ...(coins.map(
           (coin) => Padding(
-            key: UniqueKey(),
-            padding: const EdgeInsets.only(top: 20),
-            child: CoinListTile(
-              onClick: () => selectCoin(coin.symbol),
-              coin: coin
-            )
-          ),
+              key: UniqueKey(),
+              padding: const EdgeInsets.only(top: 20),
+              child: CoinListTile(
+                  onClick: () => selectCoin(coin.symbol, coin.name), coin: coin)),
         )),
       ],
     );

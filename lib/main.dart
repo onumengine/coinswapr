@@ -3,6 +3,7 @@ import 'package:coinswapr/core/theming/color_palette.dart';
 import 'package:coinswapr/service_locator.dart';
 import 'package:coinswapr/views/pages/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: ColorPalette.primaryWhite,
+        fontFamily: GoogleFonts.nunito().fontFamily,
+        textTheme: TextTheme(
+          caption: GoogleFonts.poppins(),
+        ),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: ColorPalette.appbarText,
+            fontSize: 22,
+            fontFamily: GoogleFonts.nunito().fontFamily,
+          ),
+        ),
       ),
       home: const SplashScreen(),
       routes: routeMap,

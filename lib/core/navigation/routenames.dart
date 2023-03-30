@@ -6,4 +6,5 @@ class RouteNames {
   static const home = "home";
   static const notifications = "notifications";
   static const notificationSettings = "notification-settings";
+  static const coinWallet = "coin-wallet";
 }
