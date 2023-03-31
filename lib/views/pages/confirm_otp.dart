@@ -21,6 +21,7 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
   final otpKey = GlobalKey();
   final rowKey = GlobalKey();
   final btnRowKey = GlobalKey();
+  final OtpFieldController otpFieldController = OtpFieldController();
 
   String userEmail = "";
 
@@ -42,7 +43,14 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
   void initState() {
     super.initState();
     userEmail = "ku...@gmail.com";
+    Timer(const Duration(milliseconds: 500), () {
+      otpFieldController.setFocus(0);
+    });
   }
+
+  @override
+  void didUpdateWidget(covariant ConfirmOTP oldWidget) {
+    super.didUpdateWidget(oldWidget);}
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +97,7 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
                 height: 60,
               ),
               OTPTextField(
+                controller: otpFieldController,
                 length: 5,
                 width: screenSize.width,
                 textFieldAlignment: MainAxisAlignment.spaceAround,
