@@ -11,6 +11,7 @@ import 'package:coinswapr/views/pages/notification_settings.dart';
 import 'package:coinswapr/views/pages/notifications.dart';
 import 'package:coinswapr/views/pages/onboarding.dart';
 import 'package:coinswapr/views/pages/profile_settings.dart';
+import 'package:coinswapr/views/pages/referral.dart';
 import 'package:coinswapr/views/pages/settings.dart';
 import 'package:coinswapr/views/pages/splash.dart';
 import 'package:flutter/material.dart';
@@ -34,4 +35,5 @@ Map<String, WidgetBuilder> routeMap = {
   RouteNames.settings: (_) => const Settings(),
   RouteNames.profileSettings: (_) => const ProfileSettings(),
   RouteNames.languageSettings: (_) => const LanguageSettings(),
+  RouteNames.referral: (_) => const Referral(),
 };

@@ -208,7 +208,7 @@ class _SettingsState extends State<Settings> {
               color: ColorPalette.appbarText,
             ),
             onTap: () {
-              openPage(RouteNames.home);
+              openPage(RouteNames.referral);
             },
           ),
           ListTile(
