@@ -39,4 +39,6 @@ class ColorPalette {
   static const greenButtonSecondary = Color(0xFF009688);
   static const greyTileIconBorder = Color(0xFFCBD5E1);
   static const divider = Color(0xFFF1F5F9);
+  static const blueChartGradient = Color(0xFF0085ff);
+  static const chartHorizGridline = Color(0xFF0075FF);
 }

@@ -4,6 +4,7 @@ import 'package:coinswapr/core/utilities/globals.dart';
 import 'package:coinswapr/core/utilities/show_snackbar.dart';
 import 'package:coinswapr/models/coin_symbol_route_arg.dart';
 import 'package:coinswapr/views/molecules/transaction_tile.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -174,15 +175,129 @@ class _CoinWalletState extends State<CoinWallet> {
                   contentPadding: const EdgeInsets.only(right: 5),
                   title: Padding(
                     padding: const EdgeInsets.only(bottom: 5),
-                    child: Text("$_coinName (${_coinSymbol.toUpperCase()})"),
+                    child: Text(
+                      "$_coinName (${_coinSymbol.toUpperCase()})",
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: .5,
+                        color: ColorPalette.tileSubtitleText,
+                      ),
+                    ),
                   ),
                   subtitle: const Text(
                     '\$14,500.00',
-                    style: TextStyle(),
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                      color: ColorPalette.tileTitleText,
+                    ),
                   ),
                   trailing: Text(
                     '+2%',
                     style: _positiveChangeText,
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 300,
+                  child: Center(
+                    child: LineChart(
+                      LineChartData(
+                        lineBarsData: [
+                          LineChartBarData(
+                            spots: [
+                              const FlSpot(10, 15),
+                              const FlSpot(20, 20),
+                              const FlSpot(50, 70),
+                              const FlSpot(60, 50),
+                              const FlSpot(90, 40),
+                            ],
+                            color: ColorPalette.primaryBlue,
+                            belowBarData: BarAreaData(
+                              show: true,
+                              color: ColorPalette.blueChartGradient,
+                              gradient: LinearGradient(
+                                colors: [
+                                  ColorPalette.blueChartGradient
+                                      .withOpacity(.5),
+                                  ColorPalette.blueChartGradient
+                                      .withOpacity(.36),
+                                  ColorPalette.blueChartGradient.withOpacity(0),
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                            ),
+                          ),
+                        ],
+                        lineTouchData: LineTouchData(
+                          enabled: true,
+                          touchTooltipData: LineTouchTooltipData(
+                            tooltipBgColor: ColorPalette.primaryBlue,
+                            tooltipPadding: const EdgeInsets.symmetric(
+                              vertical: 2,
+                              horizontal: 6,
+                            ),
+                            tooltipMargin: 8,
+                            getTooltipItems: (items) => items
+                                .map(
+                                  (spot) => LineTooltipItem(
+                                    '\$${spot.y}',
+                                    const TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: .5,
+                                      color: ColorPalette.primaryWhite,
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ),
+                        borderData: FlBorderData(
+                          show: false,
+                        ),
+                        gridData: FlGridData(
+                          drawVerticalLine: false,
+                          getDrawingHorizontalLine: (door) => FlLine(
+                            color: ColorPalette.chartHorizGridline,
+                            strokeWidth: 1,
+                            dashArray: [4, 2],
+                          ),
+                        ),
+                        titlesData: FlTitlesData(
+                          show: true,
+                          leftTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: false,
+                            ),
+                          ),
+                          topTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: false,
+                            ),
+                          ),
+                          rightTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: true,
+                              getTitlesWidget: (pt, meta) =>
+                                  Text("\$${pt.toInt()}"),
+                              reservedSize: 35,
+                            ),
+                          ),
+                          bottomTitles: AxisTitles(
+                            sideTitles: SideTitles(
+                              showTitles: true,
+                            ),
+                          ),
+                        ),
+                        clipData: FlClipData.all(),
+                      ),
+                      chartRendererKey: UniqueKey(),
+                      swapAnimationDuration: const Duration(milliseconds: 200),
+                      swapAnimationCurve: Curves.easeIn,
+                    ),
                   ),
                 ),
                 Row(
