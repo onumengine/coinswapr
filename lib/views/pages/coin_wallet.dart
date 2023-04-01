@@ -3,6 +3,7 @@ import 'package:coinswapr/core/theming/color_palette.dart';
 import 'package:coinswapr/core/utilities/globals.dart';
 import 'package:coinswapr/core/utilities/show_snackbar.dart';
 import 'package:coinswapr/models/coin_symbol_route_arg.dart';
+import 'package:coinswapr/views/bottom_sheets/send_coin.dart';
 import 'package:coinswapr/views/molecules/transaction_tile.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -156,13 +157,13 @@ class _CoinWalletState extends State<CoinWallet> {
               borderRadius: BorderRadius.circular(kBorderRadiusTwelve),
               boxShadow: const [
                 BoxShadow(
-                  color: Color(0x04000000),
+                  color: ColorPalette.cardShadow,
                   offset: Offset(0, 1.85),
                   blurRadius: 3.15,
                   spreadRadius: 0,
                 ),
                 BoxShadow(
-                  color: Color(0x07000000),
+                  color: ColorPalette.cardShadowSecond,
                   offset: Offset(0, 8.15),
                   blurRadius: 6.52,
                   spreadRadius: 0,
@@ -288,7 +289,7 @@ class _CoinWalletState extends State<CoinWallet> {
                           ),
                           bottomTitles: AxisTitles(
                             sideTitles: SideTitles(
-                              showTitles: true,
+                              showTitles: false,
                             ),
                           ),
                         ),
@@ -300,6 +301,7 @@ class _CoinWalletState extends State<CoinWallet> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: _intervals
@@ -336,13 +338,31 @@ class _CoinWalletState extends State<CoinWallet> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  showSnackbar("Sending ${_coinSymbol.toUpperCase()}", context);
+                  showModalBottomSheet(
+                    context: context,
+                    constraints: BoxConstraints(
+                      maxHeight: MediaQuery.of(context).size.height * .65
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    builder: (context) => const SendCoinBottomSheet(),
+                    routeSettings: RouteSettings(
+                      arguments: CoinSymbolRouteArg(
+                        name: _coinName,
+                        symbol: _coinSymbol,
+                      ),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
                       ColorPalette.primaryBlueLight.withOpacity(.1),
                   foregroundColor: ColorPalette.primaryBlueLight,
                   elevation: 0,
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 child: const Text("Send"),
               ),
@@ -356,6 +376,9 @@ class _CoinWalletState extends State<CoinWallet> {
                       ColorPalette.primaryBlueLight.withOpacity(.1),
                   foregroundColor: ColorPalette.primaryBlueLight,
                   elevation: 0,
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 child: const Text("Receive"),
               ),
@@ -368,6 +391,9 @@ class _CoinWalletState extends State<CoinWallet> {
                       ColorPalette.primaryBlueLight.withOpacity(.1),
                   foregroundColor: ColorPalette.primaryBlueLight,
                   elevation: 0,
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 child: const Text("Buy"),
               ),
@@ -380,6 +406,9 @@ class _CoinWalletState extends State<CoinWallet> {
                       ColorPalette.primaryBlueLight.withOpacity(.1),
                   foregroundColor: ColorPalette.primaryBlueLight,
                   elevation: 0,
+                  textStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 child: const Text("Sell"),
               ),

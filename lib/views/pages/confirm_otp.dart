@@ -44,13 +44,15 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
     super.initState();
     userEmail = "ku...@gmail.com";
     Timer(const Duration(milliseconds: 500), () {
+      if (mounted == false) return;
       otpFieldController.setFocus(0);
     });
   }
 
   @override
   void didUpdateWidget(covariant ConfirmOTP oldWidget) {
-    super.didUpdateWidget(oldWidget);}
+    super.didUpdateWidget(oldWidget);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,17 +118,19 @@ class _ConfirmOTPState extends State<ConfirmOTP> {
                   color: ColorPalette.primaryWhite,
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   TextButton(
                     style: TextButton.styleFrom(
-                        foregroundColor: ColorPalette.primaryWhite,
-                        textStyle: const TextStyle(
-                            fontSize: 14, height: 1.42, letterSpacing: .1)),
+                      foregroundColor: ColorPalette.primaryWhite,
+                      textStyle: const TextStyle(
+                        fontSize: 14,
+                        height: 1.42,
+                        letterSpacing: .1,
+                      ),
+                    ),
                     onPressed: resendCode,
                     child: const Text(
                       "Resend Code",
