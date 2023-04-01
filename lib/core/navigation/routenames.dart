@@ -11,4 +11,5 @@ class RouteNames {
   static const profileSettings = "profile-settings";
   static const languageSettings = "language-settings";
   static const referral = "referral";
+  static const helpCenter = "help-center";
 }
