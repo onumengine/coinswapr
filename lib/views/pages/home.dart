@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: ColorPalette.appbarText,
         automaticallyImplyLeading: false,
         elevation: 0,
+        centerTitle: false,
         title: const Text("Welcome home, Pete"),
         actions: [
           IconButton(

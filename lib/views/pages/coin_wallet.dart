@@ -3,10 +3,12 @@ import 'package:coinswapr/core/theming/color_palette.dart';
 import 'package:coinswapr/core/utilities/globals.dart';
 import 'package:coinswapr/core/utilities/show_snackbar.dart';
 import 'package:coinswapr/models/coin_symbol_route_arg.dart';
+import 'package:coinswapr/views/bottom_sheets/receive_coin.dart';
 import 'package:coinswapr/views/bottom_sheets/send_coin.dart';
 import 'package:coinswapr/views/molecules/transaction_tile.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CoinWallet extends StatefulWidget {
@@ -341,8 +343,7 @@ class _CoinWalletState extends State<CoinWallet> {
                   showModalBottomSheet(
                     context: context,
                     constraints: BoxConstraints(
-                      maxHeight: MediaQuery.of(context).size.height * .65
-                    ),
+                        maxHeight: MediaQuery.of(context).size.height * .65),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
                     ),
@@ -368,8 +369,21 @@ class _CoinWalletState extends State<CoinWallet> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  showSnackbar(
-                      "Receiving ${_coinSymbol.toUpperCase()}", context);
+                  showModalBottomSheet(
+                    context: context,
+                    constraints: BoxConstraints(
+                        minHeight: MediaQuery.of(context).size.height),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    builder: (context) => const ReceiveCoinBottomSheet(),
+                    routeSettings: RouteSettings(
+                      arguments: CoinSymbolRouteArg(
+                        name: _coinName,
+                        symbol: _coinSymbol,
+                      ),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
@@ -420,11 +434,12 @@ class _CoinWalletState extends State<CoinWallet> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Transactions',
                 style: TextStyle(
+                  fontFamily: GoogleFonts.poppins().fontFamily,
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   letterSpacing: .1,
                 ),
               ),
@@ -449,7 +464,10 @@ class _CoinWalletState extends State<CoinWallet> {
                   ),
                 ],
                 onChanged: _changeTransactionRange,
-                icon: const Icon(Icons.keyboard_arrow_down),
+                icon: const Icon(
+                  Icons.keyboard_arrow_down,
+                  color: ColorPalette.normalIcon,
+                ),
                 underline: const SizedBox.shrink(),
               )
             ],
