@@ -4,6 +4,7 @@ import 'package:coinswapr/services/notification_settings.dart';
 import 'package:coinswapr/viewmodels/notif_settings_vm.dart';
 import 'package:coinswapr/views/pages/coin_wallet.dart';
 import 'package:coinswapr/views/pages/confirm_otp.dart';
+import 'package:coinswapr/views/pages/contact_info.dart';
 import 'package:coinswapr/views/pages/get_started.dart';
 import 'package:coinswapr/views/pages/help_center.dart';
 import 'package:coinswapr/views/pages/home.dart';
@@ -38,4 +39,5 @@ Map<String, WidgetBuilder> routeMap = {
   RouteNames.languageSettings: (_) => const LanguageSettings(),
   RouteNames.referral: (_) => const Referral(),
   RouteNames.helpCenter: (_) => const HelpCenter(),
+  RouteNames.contactInfo: (_) => const ContactInfo(),
 };
