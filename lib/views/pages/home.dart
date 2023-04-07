@@ -1,9 +1,9 @@
 import 'package:coinswapr/core/navigation/routenames.dart';
 import 'package:coinswapr/core/theming/color_palette.dart';
-import 'package:coinswapr/views/components/history.dart';
 import 'package:coinswapr/views/components/peer_to_peer.dart';
 import 'package:coinswapr/views/components/portfolio.dart';
 import 'package:coinswapr/views/components/price_alerts.dart';
+import 'package:coinswapr/views/components/transaction_history.dart';
 import 'package:coinswapr/views/components/wallet.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
     PeerToPeer(
       key: UniqueKey(),
     ),
-    History(
+    TransactionHistory(
       key: UniqueKey(),
     ),
     PriceAlerts(
@@ -50,7 +50,13 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         elevation: 0,
         centerTitle: false,
-        title: const Text("Welcome home, Pete"),
+        title: (_currentNavbarIndex == 3)
+            ? const CircleAvatar(
+                backgroundColor: Color(0xff0075FF),
+                radius: 25,
+                backgroundImage: AssetImage('assets/bored-ape.png'),
+              )
+            : const Text("Welcome home, Pete"),
         actions: [
           IconButton(
             onPressed: () {
@@ -72,9 +78,8 @@ class _HomePageState extends State<HomePage> {
         child: subComponents[_currentNavbarIndex],
       ),
       bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: ColorPalette.primaryWhite
-        ),
+        data:
+            Theme.of(context).copyWith(canvasColor: ColorPalette.primaryWhite),
         child: BottomNavigationBar(
           currentIndex: _currentNavbarIndex,
           onTap: _setCurrentNavbarIndex,
@@ -104,7 +109,9 @@ class _HomePageState extends State<HomePage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                _currentNavbarIndex == 3 ? Icons.receipt : Icons.receipt_outlined,
+                _currentNavbarIndex == 3
+                    ? Icons.receipt
+                    : Icons.receipt_outlined,
               ),
               label: "History",
             ),

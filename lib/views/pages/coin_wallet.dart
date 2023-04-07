@@ -473,7 +473,7 @@ class _CoinWalletState extends State<CoinWallet> {
             ],
           ),
           const SizedBox(height: kCoinswaprPadding),
-          ...transactions.map(
+          ...transactions.take(6).map(
             (txn) => Padding(
               padding: const EdgeInsets.only(bottom: kCoinswaprPadding),
               child: TransactionTile(txn: txn),

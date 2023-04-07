@@ -34,6 +34,10 @@ class Transaction extends Equatable {
         timestamp,
         fiatAmount,
         cryptoAmount,
+        fiatSymbol,
+        cryptoSymbol,
+        fiatCurrency,
+        cryptoCurrency,
         type,
       ];
 }

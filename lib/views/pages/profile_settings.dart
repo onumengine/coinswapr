@@ -38,22 +38,23 @@ class _ProfileSettingsState extends State<ProfileSettings> {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: ColorPalette.primaryWhite,
-                borderRadius: BorderRadius.circular(kBorderRadiusTwelve),
-                boxShadow: const <BoxShadow>[
-                  BoxShadow(
-                    color: ColorPalette.cardShadow,
-                    offset: Offset(0, 1.85),
-                    blurRadius: 3.15,
-                    spreadRadius: 0,
-                  ),
-                  BoxShadow(
-                    color: ColorPalette.cardShadowSecond,
-                    offset: Offset(0, 8.15),
-                    blurRadius: 6.52,
-                    spreadRadius: 0,
-                  ),
-                ]),
+              color: ColorPalette.primaryWhite,
+              borderRadius: BorderRadius.circular(kBorderRadiusTwelve),
+              boxShadow: const <BoxShadow>[
+                BoxShadow(
+                  color: ColorPalette.cardShadow,
+                  offset: Offset(0, 1.85),
+                  blurRadius: 3.15,
+                  spreadRadius: 0,
+                ),
+                BoxShadow(
+                  color: ColorPalette.cardShadowSecond,
+                  offset: Offset(0, 8.15),
+                  blurRadius: 6.52,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
             child: Column(
               children: [
                 ListTile(

@@ -13,6 +13,7 @@ class TransactionTile extends StatelessWidget {
   );
   final TextStyle subtitleStyle = const TextStyle(
     fontSize: 12,
+    fontWeight: FontWeight.w500,
     letterSpacing: .4,
     color: ColorPalette.tileSubtitleText,
   );
